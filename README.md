@@ -1,4 +1,13 @@
-clj-heroku-api
-==============
+# clj-heroku-api
 
-Wrapper around the java api for heroku
+A Clojure library designed to ... well, that part is up to you.
+
+## Usage
+
+FIXME
+
+## License
+
+Copyright © 2013 FIXME
+
+Distributed under the Eclipse Public License, the same as Clojure.

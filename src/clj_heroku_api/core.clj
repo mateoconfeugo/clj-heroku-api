@@ -67,7 +67,9 @@
   (let [conn (ConnectionFactory/get)]
     (.execute conn (KeyList. ) api-token)))
 
-(defn add-config
-  "Add a map of configs to the named application"
-  [app-name configs api-token]
-  (.execute (ConnectionFactory/get) (ConfigAdd. app-name (json/generate-string configs)) api-token))
+;;TODO:  write the test first matt!
+(comment
+  (defn add-config
+    "Add a map of configs to the named application"
+    [app-name configs api-token]
+    (.execute (ConnectionFactory/get) (ConfigAdd. app-name (json/generate-string configs)) api-token)))

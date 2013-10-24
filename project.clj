@@ -14,4 +14,5 @@
             [lein-autoexpect "0.2.5"]
             [lein-ancient "0.5.1"]]
   :profiles  {:dev {:dependencies [[expectations "1.4.56"]
+                                   [com.taoensso/timbre "2.6.2"] ; Logging
                                    [org.clojure/tools.trace "0.7.6"]]}})

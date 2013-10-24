@@ -20,15 +20,22 @@
   (let [conn (ConnectionFactory/get)]
     (.execute conn (AppDestroy. name) api-token)))
 
+;; TODO: Simplify this function
 (defn create-app
   "new heroku application and install it on heroku hosting service"
-  [name api-token]
-  (let [conn (ConnectionFactory/get)
-        api (HerokuAPI. api-token)
-        app (-> (App. )
-                (.named name)
-                (.on com.heroku.api.Heroku$Stack/Cedar))]
-    (.createApp api app)))
+  ([name api-token]
+     (let [conn (ConnectionFactory/get)
+           api (HerokuAPI. api-token)
+           app (-> (App. )
+                   (.named name)
+                   (.on com.heroku.api.Heroku$Stack/Cedar))]
+       (.createApp api app)))
+  ([api-token]
+     (let [conn (ConnectionFactory/get)
+           api (HerokuAPI. api-token)
+           app (-> (App. )
+                   (.on com.heroku.api.Heroku$Stack/Cedar))]
+       (.createApp api app))))
 
 (defn app-exists?
   "Check if an app with a given name exists in heroku"
@@ -68,8 +75,17 @@
     (.execute conn (KeyList. ) api-token)))
 
 ;;TODO:  write the test first matt!
-(comment
-  (defn add-config
-    "Add a map of configs to the named application"
-    [app-name configs api-token]
-    (.execute (ConnectionFactory/get) (ConfigAdd. app-name (json/generate-string configs)) api-token)))
+(defn add-config
+  "Add a map of configs to the named application"
+  [app-name configs api-token]
+  (.execute (ConnectionFactory/get) (ConfigAdd. app-name (json/generate-string configs)) api-token))
+
+(defn list-config
+  "Map of configs to the named application"
+  [app-name  api-token]
+  (.execute (ConnectionFactory/get) (ConfigList. app-name) api-token))
+
+(defn remove-config
+  "remove a  config from the named application"
+  [app-name config-name api-token]
+  (.execute (ConnectionFactory/get) (ConfigRemove. app-name config-name) api-token))

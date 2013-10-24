@@ -2,7 +2,8 @@
   :description "Heroku API"
   :url "https://github.com/mateoconfeugo/clj-heroku-api"
   :license {:name "Eclipse Public License" :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.5.1"]
+  :dependencies [[cheshire "5.2.0"] ; JSON <-> clojure
+                 [org.clojure/clojure "1.5.1"]
                  [com.heroku.api/heroku-api "0.15"]
                  [com.heroku.api/heroku-json-jackson "0.15"]
                  [com.heroku.api/heroku-http-apache "0.15"]]

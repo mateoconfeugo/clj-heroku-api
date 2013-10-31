@@ -1,13 +1,13 @@
 # clj-heroku-api
 
-A Clojure library designed to ... well, that part is up to you.
+Use the heroku api from clojure
 
 ## Usage
 
-FIXME
+(use 'clj-heroku-api)
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 Matt Burns
 
 Distributed under the Eclipse Public License, the same as Clojure.

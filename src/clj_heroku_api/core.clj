@@ -89,3 +89,5 @@
   "remove a  config from the named application"
   [app-name config-name api-token]
   (.execute (ConnectionFactory/get) (ConfigRemove. app-name config-name) api-token))
+
+(defn get-name [app] (.getName app))
